@@ -28,7 +28,7 @@ public class HerramientaController {
         return ResponseEntity.ok(herramientaService.guardarHerramienta(herramienta));
     }
     @PutMapping
-    public ResponseEntity<Herramienta> actualizarHerramienta(@PathVariable Long id, @Valid @RequestBody Herramienta herramienta){
-        return ResponseEntity.ok(herramientaService.atualizarHerramienta(id, herramienta));
+    public ResponseEntity<Herramienta> actualizarHerramienta(@PathVariable Long id, @Valid @RequestBody Herramienta herramienta) {
+        return ResponseEntity.ok(herramientaService.actualizarHerramienta(id, herramienta));
     }
 }
