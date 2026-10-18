@@ -29,4 +29,26 @@ public class HerramientaServiceImpl implements HerramientaService {
         }
         return herramientaRepository.save(herramienta);
     }
+
+    @Override
+    public Herramienta actualizarHerramienta(Long id, Herramienta herramienta) {
+        Herramienta existente = buscarHerramienta(id);
+        existente.setNombre(herramienta.getNombre());
+        existente.setCantidad(herramienta.getCantidad());
+        return herramientaRepository.save(existente);
+    }
+
+    @Override
+    public Herramienta buscarHerramienta(Long id) {
+        return herramientaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Herramienta no encontrada"));
+    }
+
+    @Override
+    public Void eliminarHerramienta(Long id) {
+        Herramienta existente = buscarHerramienta(id);
+        herramientaRepository.delete(existente);
+        return null;
+    }
+
 }

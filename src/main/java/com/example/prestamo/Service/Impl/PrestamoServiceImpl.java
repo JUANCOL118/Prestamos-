@@ -57,4 +57,24 @@ public class PrestamoServiceImpl implements PrestamoService {
 
         return prestamoRepository.save(prestamo);
     }
+
+    @Override
+    public Prestamo buscarPorId(Long id) {
+        return prestamoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Préstamo no encontrado"));
+    }
+
+    @Override
+    public Prestamo actualizarPrestamo(Long id, PrestamoRequest request) {
+        Prestamo existente = buscarPorId(id);
+        existente.setFechaPrestamo(request.getFechaPrestamos());
+        existente.setCantidad(request.getCantidad());
+        return prestamoRepository.save(existente);
+    }
+
+    @Override
+    public void eliminarPrestamo(Long id) {
+        Prestamo existente = buscarPorId(id);
+        prestamoRepository.delete(existente);
+    }
 }

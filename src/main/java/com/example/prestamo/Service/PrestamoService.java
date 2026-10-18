@@ -8,4 +8,7 @@ public interface PrestamoService {
     List<Prestamo> listarPrestamos();
     List<Prestamo> listarPorHerramienta(Long herramientaId);
     Prestamo registrarPrestamo(PrestamoRequest request);
+    Prestamo buscarPorId(Long id);
+    Prestamo actualizarPrestamo(Long id, PrestamoRequest request);
+    void eliminarPrestamo(Long id);
 }
