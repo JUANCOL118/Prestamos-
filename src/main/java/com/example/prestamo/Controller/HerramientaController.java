@@ -31,4 +31,13 @@ public class HerramientaController {
     public ResponseEntity<Herramienta> actualizarHerramienta(@PathVariable Long id, @Valid @RequestBody Herramienta herramienta) {
         return ResponseEntity.ok(herramientaService.actualizarHerramienta(id, herramienta));
     }
+    @GetMapping
+    public Herramienta consultarPorId(@PathVariable Long id) {
+        return herramientaService.buscarHerramienta(id);
+    }
+
+    @DeleteMapping
+    public Void eliminarHerramienta(@PathVariable Long id) {
+        return herramientaService.eliminarHerramienta(id);
+    }
 }

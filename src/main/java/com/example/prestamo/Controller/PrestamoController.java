@@ -39,4 +39,19 @@ public class PrestamoController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+    @GetMapping("/{id}")
+    public Prestamo consultarPorId(@PathVariable Long id) {
+        return prestamoService.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Prestamo> actualizarPrestamo(@PathVariable Long id, @Valid @RequestBody PrestamoRequest request) {
+        Prestamo prestamo = prestamoService.actualizarPrestamo(id, request);
+        return ResponseEntity.ok(prestamo);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminarPrestamo(@PathVariable Long id) {
+        prestamoService.eliminarPrestamo(id);
+    }
 }
