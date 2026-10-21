@@ -51,7 +51,7 @@ public class PrestamoServiceImpl implements PrestamoService {
 
         Prestamo prestamo = new Prestamo();
         prestamo.setResponsable(request.getResponsable());
-        prestamo.setFechaPrestamo(request.getFechaPrestamos());
+        prestamo.setFechaPrestamo(request.getFechaPrestamo());
         prestamo.setCantidad(request.getCantidad());
         prestamo.setHerramienta(herramienta);
 
@@ -67,7 +67,7 @@ public class PrestamoServiceImpl implements PrestamoService {
     @Override
     public Prestamo actualizarPrestamo(Long id, PrestamoRequest request) {
         Prestamo existente = buscarPorId(id);
-        existente.setFechaPrestamo(request.getFechaPrestamos());
+        existente.setFechaPrestamo(request.getFechaPrestamo());
         existente.setCantidad(request.getCantidad());
         return prestamoRepository.save(existente);
     }

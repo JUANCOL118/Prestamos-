@@ -1,5 +1,6 @@
 package com.example.prestamo.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -24,6 +25,7 @@ public class Prestamo {
     @NotBlank(message =  "el responsable es obligatorio")
     private String responsable;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "la fecha del prestamo es obligatoria")
     private LocalDate fechaPrestamo;
 
