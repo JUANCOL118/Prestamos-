@@ -1,6 +1,7 @@
 package com.example.prestamo.Model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -35,4 +36,9 @@ public class Prestamo {
     @ManyToOne
     @JoinColumn(name ="herramienta_id", nullable = false)
     private Herramienta herramienta;
+
+    @JsonProperty("herramientaId")
+    public Long getHerramientaId() {
+        return (this.herramienta != null) ? this.herramienta.getId() : 0L;
+    }
 }
